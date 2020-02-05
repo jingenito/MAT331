@@ -1,7 +1,8 @@
 %implements functions f and g 
 function Question2()
 
-xVals = 0.99 : 1e-4 : 1.01;
+stepSize = (1.01 - 0.99) / 100;
+xVals = 0.99 : stepSize : 1.01;
 
 fVals = [];
 gVals = [];

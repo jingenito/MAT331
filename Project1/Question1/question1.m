@@ -4,14 +4,19 @@ function question1()
 
 %prints the functions f and g for the 
 %x value in the loop
+
+xVals = [];
 fVals = [];
 gVals = [];
 
 for i=1:20
-    x = 5 ^ -i;
-    fVals(i) = f(x);
-    gVals(i) = g(x);
+    xVals(i) = 5 ^ -i;
+    fVals(i) = f(xVals(i));
+    gVals(i) = g(xVals(i));
 end
 
-fVals
-gVals
+A = [];
+A(:, 1) = fVals';
+A(:, 2) = gVals';
+
+t = table(xVals',A(:, 1),A(:, 2),'VariableNames',["x","f", "g"])
