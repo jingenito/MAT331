@@ -1,8 +1,8 @@
 %implements functions f, g and h
-function Question2()
+function Question2(a, b, n)
 %create the step size for 101 points
-stepSize = (1.01 - 0.99) / 100;
-xVals = 0.99 : stepSize : 1.01;
+stepSize = (b - a) / (n-1);
+xVals = a : stepSize : b;
 
 %initialize the function vectors
 fVals = [];
@@ -21,3 +21,6 @@ end
 %plot the functions 
 figure(1);
 plot(xVals,fVals,'black',xVals,gVals,'blue',xVals,hVals,'red')
+%create a table 
+t = table(xVals',fVals',gVals',hVals','VariableNames',["x","f","g","h"])
+

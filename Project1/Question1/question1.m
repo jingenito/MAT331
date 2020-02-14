@@ -9,14 +9,12 @@ xVals = [];
 fVals = [];
 gVals = [];
 
+%populate the function vectors at each x value
 for i=1:20
     xVals(i) = 5 ^ -i;
     fVals(i) = f(xVals(i));
     gVals(i) = g(xVals(i));
 end
 
-A = [];
-A(:, 1) = fVals';
-A(:, 2) = gVals';
-
-t = table(xVals',A(:, 1),A(:, 2),'VariableNames',["x","f", "g"])
+%create the table with the transposes of each row vector
+t = table(xVals',fVals',gVals','VariableNames',["x","f", "g"])
