@@ -21,6 +21,8 @@ end
 %plot the functions 
 figure(1);
 plot(xVals,fVals,'black',xVals,gVals,'blue',xVals,hVals,'red')
+xlim([a b])
+legend('f','g','h')
 %create a table 
 t = table(xVals',fVals',gVals',hVals','VariableNames',["x","f","g","h"])
 
