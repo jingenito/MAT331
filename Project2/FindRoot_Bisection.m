@@ -1,27 +1,26 @@
-function root = FindRoot_Bisection(a, b, n)
-k = 1; %initialize loop counter
+function root = FindRoot_Bisection(a, b, n, alpha)
 
 if f(a)*f(b) < 0 
+    c = [];
+    absErr = [];
     
-    while k <= n
-        c = (a + b) / 2; %get the midpoint of the new interval
+    for k=1:n
+        c(k) = (a + b) / 2; %get the midpoint of the new interval
+        absErr(k) = abs(alpha - c(k));
         
-        if f(a)*f(c) < 0
+        if f(a)*f(c(k)) < 0
             %different sign so change b
-            b = c;
-        elseif f(a)*f(c) > 0
+            b = c(k);
+        elseif f(a)*f(c(k)) > 0
             %same sign so change a
-            a = c;
-        else
-            %found the root
-            root = c;
-            return;
+            a = c(k);
         end
         
-        k = k + 1;
     end
+    t = table([0:n-1]',c',absErr','VariableNames',["n","x","Abs Err"])
+    
     %c will be the estimate of the root
-    root = c;
+    root = c(length(c));
 end
 
 

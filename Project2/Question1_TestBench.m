@@ -4,7 +4,7 @@ function Question1_TestBench()
 x = linspace(5,6,100);
 y = [];
 
-for i=1:len(x)
+for i=1:length(x)
     %f that changed 36 to 36.001
     y(i) = f(x(i));
 end
